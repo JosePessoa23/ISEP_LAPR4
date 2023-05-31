@@ -1,0 +1,72 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+package "survey"{
+class Survey{
+-id
+-final_date
+-title
+-welcomeMessage
+}
+
+class Section{
+-section_id
+-section_identification
+-section_description
+-obligatoriness
+-condition
+}
+
+Survey <<entity>>
+Section <<entity>>
+Description <<value object>>
+Question <<value object>>
+}
+
+package "surveyAnswer"{
+SurveyAnswer <<entity>>
+
+class SurveyAnswer{
+-surveyAnswer_id
+-customer
+-survey
+-answers
+}
+}
+
+Survey  --> "1" Section
+Survey  --> "1" Description
+Section --> "*" Question
+
+package "customer"{
+class Customer{
+-id
+}
+
+
+Customer <<entity>>
+Address <<value object>>
+Email <<value object>>
+PhoneNumber <<value object>>
+BirthDate <<value object>>
+Delivering <<value object>>
+Billing <<value object>>
+VAT <<value object>>
+Name <<value object>>
+Gender <<value object>>
+}
+
+Customer "*" -- "*" Survey : answer >
+Customer "*" -- "*" SurveyAnswer : originates >
+Customer  --> "1" Email
+Customer  --> "1" VAT
+Customer  --> "1" PhoneNumber
+Customer  --> "1" Name
+Customer  --> "1" Gender
+Customer  --> "0..1" BirthDate
+Customer "1" -- "*" Address : residence >
+Address <|-- Delivering
+Address <|-- Billing
+@enduml

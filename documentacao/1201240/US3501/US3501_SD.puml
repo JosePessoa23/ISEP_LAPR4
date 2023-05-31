@@ -1,0 +1,70 @@
+@startuml
+actor "Customer" as C
+participant ":QuestionnaireListUI" as QLUI
+participant ":QuestionnaireListController" as QLC
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":CustomerRepository" as CR
+participant ":SurveyRepository" as SR
+participant ":SurveyAnswerRepository" as SAR
+participant "customer: Customer" as Ct
+participant "answeredSurveys: Survey" as AS
+participant "surveys: Survey" as S
+participant "surveyAnswer: SurveyAnswer" as SA
+
+autonumber
+activate C
+C -> QLUI: asks to get the list of questionnaires that the system is asking him to answer
+activate QLUI
+QLUI -> QLC: questionnairesList = getQuestionnairesList()
+activate QLC
+QLC -> PC : repositories()
+activate PC
+PC -> RF : customer = findCustomerByEmail(email)
+activate RF
+RF -> CR : customer = findCustomerByEmail(email)
+activate CR
+deactivate CR
+deactivate RF
+PC -> RF : answeredSurveys = findSurveysAnsweredByCustomer(customer)
+activate RF
+RF -> SAR : answeredSurveys = findSurveysAnsweredByCustomer(customer)
+activate SAR
+deactivate SAR
+deactivate RF
+PC -> RF : answeredSurveys = findAll()
+activate RF
+RF -> SR : answeredSurveys = findAll()
+activate SR
+deactivate SR
+deactivate RF
+
+
+deactivate CR
+deactivate RF
+deactivate PC
+deactivate QLC
+QLUI --> C: shows the requested list of questionnaires
+deactivate QLUI
+C -> QLUI: answers the questionnaires he wants
+activate QLUI
+QLUI -> QLC: answerSurvey(survey, answers)
+activate QLC
+QLC -> PC : repositories()
+activate PC
+PC -> RF : customer = findCustomerByEmail(email)
+activate RF
+RF -> CR : customer = findCustomerByEmail(email)
+activate CR
+deactivate CR
+deactivate RF
+PC -> RF : save(surveyAnswer)
+activate RF
+RF -> SAR : save(surveyAnswer)
+activate SAR
+deactivate SAR
+deactivate RF
+QLUI --> C: informs operation success
+deactivate QLUI
+deactivate C
+@enduml

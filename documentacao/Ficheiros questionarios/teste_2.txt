@@ -1,0 +1,37 @@
+QUEST3
+produtos.
+bem vindo ao questionario. tem 4 perguntas para responder a cerca de produtos que encomendou.
+1. alimentar.
+frutas que adquiriu.
+mandatory
+1. Indique quais frutas comprou.
+free-text
+mandatory
+
+2. cozinha.
+produtos indispensaveis.
+optional
+1. assinale os utensilios que sao indispensaveis na sua cozinha?
+multiple-choice
+a) Batedeira;
+b) Trituradora;
+c) Bimby.
+optional
+
+3. vestuario.
+vestuario que adquiriu.
+optional
+1. Importancia do que devem ter umas sapatilhas para si.
+sorting options
+a) Cor;
+b) Desenhos;
+c) Tamanho.
+condition dependent 2 1 a
+2. Cor de camisola favorito?
+single-choice
+a) Rosa;
+b) Azul;
+c) Castanho.
+condition dependent 2 1 b
+
+obrigada pelas suas respostas.

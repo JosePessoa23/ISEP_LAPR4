@@ -1,0 +1,11 @@
+QUEST1
+Questionario de nomes.
+bem vindo ao questionario. demora cerca de 10 minutos.
+1. nomes.
+saber distinguir nomes.
+mandatory
+1. qual o seu nome?
+free-text
+mandatory
+
+obrigada pela resposta.

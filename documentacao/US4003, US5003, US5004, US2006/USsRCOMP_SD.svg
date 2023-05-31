@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="280px" preserveAspectRatio="none" style="width:428px;height:280px;background:#FFFFFF;" version="1.1" viewBox="0 0 428 280" width="428px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="142.9219" style="stroke:#181818;stroke-width:1.0;" width="10" x="55.5" y="65.2188"/><rect fill="#FFFFFF" height="120.5703" style="stroke:#181818;stroke-width:1.0;" width="10" x="191.5" y="87.5703"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="344.5" y="178.1406"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="60" x2="60" y1="55.2188" y2="226.1406"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="196" x2="196" y1="55.2188" y2="226.1406"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="349" x2="349" y1="135.6797" y2="226.1406"/><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="111" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="49" x="36" y="26.5332">«client»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="12" y="44.1426">AGVDigitalTwin</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="111" x="5" y="225.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="49" x="36" y="246.6738">«client»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="12" y="264.2832">AGVDigitalTwin</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="141" x="126" y="22.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="133" y="44.1426">AGVManagerServer</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="141" x="126" y="225.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="133" y="246.6738">AGVManagerServer</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="145" x="277" y="225.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="57" x="321" y="246.6738">«thread»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="284" y="264.2832">AGVManagerThread</text><rect fill="#FFFFFF" height="142.9219" style="stroke:#181818;stroke-width:1.0;" width="10" x="55.5" y="65.2188"/><rect fill="#FFFFFF" height="120.5703" style="stroke:#181818;stroke-width:1.0;" width="10" x="191.5" y="87.5703"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="344.5" y="178.1406"/><polygon fill="#181818" points="179.5,83.5703,189.5,87.5703,179.5,91.5703,183.5,87.5703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="65.5" x2="185.5" y1="87.5703" y2="87.5703"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="54" x="72.5" y="82.7139">connect()</text><polygon fill="#181818" points="265,113.9219,275,117.9219,265,121.9219,269,117.9219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="201.5" x2="271" y1="117.9219" y2="117.9219"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="208.5" y="113.0654">new</text><rect fill="#E2E2F0" height="49.2188" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="145" x="277" y="95.5703"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="57" x="321" y="117.1035">«thread»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="284" y="134.7129">AGVManagerThread</text><polygon fill="#181818" points="332.5,174.1406,342.5,178.1406,332.5,182.1406,336.5,178.1406" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="201.5" x2="338.5" y1="178.1406" y2="178.1406"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="34" x="208.5" y="173.2842">start()</text><!--MD5=[1ec852927baa1a56dd6d801f801840c8]
+@startuml
+
+participant AGVDigitalTwin <<client>>
+participant AGVManagerServer
+participant AGVManagerThread as TH <<thread>>
+
+
+activate AGVDigitalTwin
+AGVDigitalTwin -> AGVManagerServer : connect()
+activate AGVManagerServer
+AGVManagerServer -> TH** : new
+AGVManagerServer -> TH : start()
+activate TH
+deactivate TH
+deactivate AGVManagerServer
+deactivate AGVDigitalTwin
+
+@enduml
+
+PlantUML version 1.2022.5(Sat Apr 30 11:55:52 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

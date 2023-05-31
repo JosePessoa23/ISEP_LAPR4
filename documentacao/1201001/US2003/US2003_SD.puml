@@ -1,0 +1,113 @@
+@startuml
+autonumber
+'hide footbox
+actor "Warehouse Employee" as WE
+
+participant ":AssignOrderUI" as UI
+participant ":AssignOrderController" as CTRL
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":AGVRepository" as AR
+participant ":WarehouseRepository" as WR
+participant ":OrderRepository" as OR
+participant "agv:AGV" as A
+participant "warehouse:Warehouse" as W
+participant "order:Order" as O
+
+activate WE
+WE -> UI: I want to see the list of orders that need to be prepared by an AGV and ask/force any of those orders to be immediately prepared by an AGV available.
+activate UI
+UI -> CTRL : getOrdersToBePrepared()
+activate CTRL
+CTRL -> PC : repositories()
+
+activate PC
+ref over PC
+OrderRepository_SD
+WarehouseRepository_SD
+AGVRepository_SD
+end ref
+PC --> CTRL
+deactivate PC
+
+
+CTRL -> WR : findAllWarehouses()
+activate WR
+WR --> CTRL : warehouse
+deactivate WR
+CTRL -> W : getOrders()
+activate W
+W --> CTRL : orderslist
+deactivate W
+loop for each order on orderslist
+CTRL -> O : toOrderDTO(order)
+activate O
+O --> CTRL :orderDTO
+deactivate O
+end
+CTRL --> UI :orderslistDTO
+
+deactivate CTRL
+UI --> WE: asks to select the needed data (The order)
+deactivate UI
+WE -> UI: select requested data
+activate UI
+
+UI -> CTRL : getAllAGVAvailable(product_OrderDTOComplete)
+activate CTRL
+CTRL -> AR : findAbleAGVs(orderWeight, orderVolume)
+activate AR
+AR --> CTRL : agvlist
+deactivate AR
+
+loop for each agv on agvlist
+CTRL -> A : toDTOAGV(agv)
+activate A
+A --> CTRL :agvDTO
+deactivate A
+end
+CTRL --> UI : agvlistDTO
+deactivate CTRL
+UI --> WE: asks to select the needed data (AGV)
+deactivate UI
+WE -> UI: select requested data
+activate UI
+UI -> CTRL : assignOrder(product_OrderDTOComplete,agvDTO)
+activate CTRL
+
+CTRL ->  OR : order =findOrderWithid(orderDTOComplete.id);
+activate OR
+deactivate OR
+CTRL -> AR :  agv = findAGVWithid(agvDTO.id)
+activate AR
+deactivate AR
+
+CTRL -> A: occupyAGV()
+activate A
+|||
+deactivate A
+
+CTRL -> O: beingPrepared()
+activate O
+|||
+deactivate O
+
+CTRL -> O: readyForPacking()
+activate O
+|||
+deactivate O
+
+CTRL -> A: freeAGV()
+activate A
+|||
+deactivate A
+deactivate CTRL
+UI --> WE: informs operation success
+
+
+
+
+
+
+deactivate WE
+@enduml

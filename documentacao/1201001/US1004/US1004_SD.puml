@@ -1,0 +1,146 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+'hide footbox
+actor "Sales Clerk" as SC
+participant ":RegisterProduct_OrderUI" as RPOUI
+participant ":ViewProductCatalogUI" as VPCUI
+participant ":RegisterCustomerUI" as RCUI
+participant ":RegisterProduct_OrderController" as RPOC
+participant "product_order: Product_Order" as PO
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":OrderRepository" as OR
+participant ":CustomerRepository" as CR
+participant ":ProductRepository" as PR
+
+
+
+
+autonumber
+activate SC
+SC -> RPOUI: Register a new Order in behalf of a customer
+activate RPOUI
+RPOUI --> SC : asks if the Sales Clerk wants to type the produtsID
+alt answered positive
+loop While the Sales Clerk wants to
+RPOUI --> SC : asks if the Sales Clerk wants to see the product catalog
+
+alt answered positive
+
+SC -> RPOUI : positive answer
+RPOUI -> VPCUI :
+activate VPCUI
+ref over VPCUI
+US1002_SD
+end ref
+VPCUI --> RPOUI
+deactivate VPCUI
+end
+
+end loop
+end
+RPOUI --> SC : asks to type requested data (productID and it's quantity)
+
+SC -> RPOUI : types requested data
+
+RPOUI --> SC : asks if the Sales Clerk wants to select products
+alt answered positive
+
+
+RPOUI -> RPOC: findAllProductsAvailable()
+activate RPOC
+
+RPOC -> PC : repositories()
+activate PC
+PC -> RF : create()
+activate RF
+RF -> OR : create()
+activate OR
+deactivate OR
+RF -> CR : create()
+activate CR
+deactivate CR
+RF -> PR : create()
+activate PR
+deactivate PR
+deactivate RF
+|||
+deactivate PC
+
+RPOC -> PR : findAllProducts()
+activate PR
+PR --> RPOC : productslist
+deactivate PR
+RPOC --> RPOUI : productslist
+
+loop While the Sales Clerk wants to
+deactivate RPOC
+RPOUI --> SC: asks to select the needed data (The wanted produts and it's quantity)
+deactivate RPOUI
+
+SC -> RPOUI: select requested data
+activate RPOUI
+end loop
+end
+
+
+RPOUI --> SC: asks to type the customerID
+deactivate RPOUI
+
+
+SC -> RPOUI: type requested data
+activate RPOUI
+
+RPOUI -> RPOC : findCustomerByID()
+activate RPOC
+RPOC -> CR : findCustomerByID()
+activate CR
+CR --> RPOC : customer
+deactivate CR
+RPOC --> RPOUI : customer
+deactivate RPOC
+
+alt customer == null
+RPOUI --> SC : asks if the Sales Clerk wants to create one
+SC -> RPOUI : answers positive
+RPOUI -> RCUI :
+activate RCUI
+ref over RCUI
+US1003_SD
+end ref
+RCUI --> RPOUI
+deactivate RCUI
+
+
+end
+
+RPOUI --> SC: asks to select the billing, the delivering address , the shipment method and a method of payment
+deactivate RPOUI
+
+
+
+SC -> RPOUI: select requested data
+activate RPOUI
+RPOUI --> SC: asks to type the source of the order information
+deactivate RPOUI
+
+
+
+SC -> RPOUI: type requested data
+activate RPOUI
+RPOUI -> RPOC : addOrder(registration_time,shipment_method,payment,\norder_productList,quantitylist\n,bilingaddress,deliveringaddress,\ncustomer,sourceofInformation)
+activate RPOC
+RPOC -> PO** : product_order = create(registration_time,shipment_method,payment,\norder_productList,quantitylist\n,bilingaddress,deliveringaddress,\ncustomer,sourceofInformation)
+RPOC -> OR : save(product_order)
+activate OR
+deactivate OR
+deactivate RPOC
+
+
+RPOUI --> SC: informs operation success
+deactivate RPOUI
+deactivate SC
+
+@enduml

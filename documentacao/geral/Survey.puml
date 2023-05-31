@@ -1,0 +1,41 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+package "survey"{
+class Survey{
+-id
+-final_date
+-title
+-welcomeMessage
+}
+
+class Section{
+-section_id
+-section_identification
+-section_description
+-obligatoriness
+-condition
+}
+Survey <<entity>>
+Section <<entity>>
+Description <<value object>>
+Question <<value object>>
+}
+
+
+package "customer"{
+class Customer{
+}
+}
+
+Survey <<entity>>
+Customer <<entity>>
+
+Survey  --> "1" Section
+Survey  --> "1" Description
+Section --> "*" Question
+Survey "*" -- "*" Customer
+
+@enduml

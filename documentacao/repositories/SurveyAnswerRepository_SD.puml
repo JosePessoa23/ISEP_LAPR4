@@ -1,0 +1,20 @@
+@startuml
+autonumber
+'hide footbox
+
+
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":SurveyAnswerRepository" as AR
+
+
+activate PC
+PC -> RF : create()
+activate RF
+RF -> AR : create()
+activate AR
+deactivate AR
+deactivate RF
+|||
+deactivate PC
+@enduml

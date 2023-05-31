@@ -1,0 +1,88 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+'hide footbox
+actor "Sales Clerk" as SC
+participant ":ProductUI" as PUI
+participant ":CreateProductController" as CPC
+participant "product: Product" as P
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant "productCategoryRepository\n:ProductCategoryRepository" as PCR
+participant "productRepository\n:ProductRepository" as PR
+participant "warehouseRepository\n:WarehouseRepository" as WR
+
+
+autonumber
+activate SC
+SC -> PUI: asks to specify a new product
+activate PUI
+PUI --> CPC: categories = getCategories()
+activate CPC
+CPC -> PC : repositories()
+activate PC
+PC -> RF : create()
+activate RF
+RF -> PCR** : create()
+deactivate RF
+deactivate PC
+CPC -> PCR: catgories = getcatrgories()
+activate PCR
+|||
+deactivate PCR
+deactivate CPC
+PUI --> SC: show categories and ask to select one
+deactivate PUI
+SC --> PUI: select a category
+activate PUI
+PUI --> CPC: locations = getAvailableRows()
+activate CPC
+CPC -> PC : repositories()
+activate PC
+PC -> RF : create()
+activate RF
+RF -> WR** : create()
+deactivate RF
+deactivate PC
+CPC -> WR: catgories = getAvailableRows()
+activate WR
+|||
+deactivate WR
+
+deactivate CPC
+PUI --> SC: show available locations and ask to select one
+deactivate PUI
+SC --> PUI: select a availabel locations
+activate PUI
+PUI --> SC:request data(code, cat, brand, priceWithoutTaxes, priceWithTaxes, barcode, productionCode, reference,\n shortDescription, extendedDescription, photoPath, warehouseID, aisleID, rowID, weight, volume)
+deactivate PUI
+SC --> PUI:type requested data
+activate PUI
+PUI --> CPC: createProduct(code, cat, brand, priceWithoutTaxes, priceWithTaxes, barcode, productionCode, reference,\n shortDescription, extendedDescription, photoPath, warehouseID, aisleID, rowID, weight, volume)
+activate CPC
+CPC --> WR: row = getRowByID(warehouseID, aisleID, rowID)
+activate WR
+|||
+deactivate WR
+CPC -> P**: product = create(code, cat, brand, priceWithoutTaxes, priceWithTaxes, barcode, productionCode, reference,\n shortDescription, extendedDescription, photoPath, row, weight, volume)
+CPC -> PC : repositories()
+activate PC
+PC -> RF : create()
+activate RF
+RF -> PR : create()
+activate PR
+deactivate PR
+deactivate RF
+|||
+deactivate PC
+
+CPC -> PR: save(product)
+activate PR
+deactivate PR
+
+PUI --> SC: informs operation success
+deactivate PUI
+deactivate SC
+
+@enduml

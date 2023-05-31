@@ -1,0 +1,71 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+
+
+
+package "agv"{
+class AGV{
+-id
+}
+
+AGV <<entity>>
+ShortDescription <<value object>>
+Model <<value object>>
+MaximumWeight <<value object>>
+MaximumVolume <<value object>>
+BaseLocation <<value object>>
+Status <<value object>>
+CurrentTask <<value object>>
+}
+
+
+
+package "order"{
+class Order{
+-id
+}
+
+
+Order <<entity>>
+Shipment_method_cost <<value object>>
+Customer_id <<value object>>
+Total_amount_without_taxes <<value object>>
+Total_amount_with_taxes <<value object>>
+Payment_confirmation <<value object>>
+Payment_method <<value object>>
+Address <<value object>>
+State <<enum>>
+
+}
+package "product"{
+Product <<entity>>
+}
+
+Order "1" -- "*" Product : contains >
+Order "1" -- "1" Shipment_method_cost : has >
+Product  --> "1" PriceWithTaxes
+Product  --> "1" PriceWithoutTaxes
+Order  --> "1" Address
+Address <|-- Postal
+Address <|-- Billing
+Order  --> "1" Customer_id
+Order  --> "1" Total_amount_without_taxes
+Order  --> "1" Total_amount_with_taxes
+Order  --> "1" Payment_method
+Order  --> "1" Payment_confirmation
+Order  --> "1" State
+AGV  --> "1" ShortDescription
+AGV  --> "1" Model
+AGV  --> "1" MaximumWeight
+AGV  --> "1" MaximumVolume
+AGV  --> "1" BaseLocation
+AGV  --> "1" Status
+AGV  --> "1" CurrentTask
+AGV  --> "*" Order : prepare >
+
+
+
+@enduml

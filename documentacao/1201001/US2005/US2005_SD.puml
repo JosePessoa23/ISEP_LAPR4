@@ -1,0 +1,51 @@
+@startuml US2005_SD.svg
+
+participant HTTP <<server>>
+participant ":PersistenceContext" as PC
+participant ":AGVRepository" as AR
+participant "serverSocket:ServerSocket" as SSC
+participant "socket:Socket" as SC
+participant "agv:AGV" as A
+
+
+activate HTTP
+HTTP -> SSC : serverSocket = create()
+activate SSC
+deactivate SSC
+
+HTTP -> SSC : socket = accept()
+activate SSC
+deactivate SSC
+
+HTTP -> PC : repositories()
+
+activate PC
+ref over PC
+AGVRepository_SD
+end ref
+PC --> HTTP
+deactivate PC
+
+HTTP -> AR : agvlist = findAllAGV()
+activate AR
+deactivate AR
+
+loop for each agvlist
+  HTTP -> A : identification()
+  activate A
+  A --> HTTP : identification
+  deactivate A
+
+  HTTP -> A : currentTask()
+  activate A
+  A --> HTTP : currentTask
+  deactivate A
+end
+
+HTTP -> SC : write(string)
+activate SC
+deactivate SC
+
+deactivate HTTP
+
+@enduml

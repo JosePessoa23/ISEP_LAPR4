@@ -1,0 +1,66 @@
+@startuml
+autonumber
+'hide footbox
+actor "Warehouse Employee" as WE
+
+participant ":DispatchOrderUI" as UI
+participant ":DispatchOrderController" as CTRL
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":Product_OrderRepository" as OR
+participant "order:Product_Order" as O
+participant "orderdto:Product_OrderDtoComplete" as ODC
+participant "orderslist:List<Product_Order>" as OL
+
+
+activate WE
+WE -> UI: I want to see the list of orders that have already been prepared by the AGVs and be able to  \n update any of those orders as having been dispatched for customer delivery.
+activate UI
+UI -> CTRL : getOrdersToBeReadyForPackaging()
+activate CTRL
+CTRL -> PC : repositories()
+
+activate PC
+ref over PC
+OrderRepository_SD
+end ref
+PC --> CTRL
+deactivate PC
+
+CTRL -> OR : findAllOrderReadyForPackaging()
+activate OR
+OR --> CTRL : orderslist
+deactivate OR
+loop for each order on orderslist
+CTRL -> O : toOrderDTO(order)
+activate O
+O --> CTRL :orderDTO
+deactivate O
+end
+CTRL --> UI :orderslistDTO
+
+deactivate CTRL
+
+UI --> WE: asks to select the desired order from the list
+deactivate UI
+WE -> UI: selects the requested data
+activate UI
+UI -> CTRL : changeState(orderdto)
+activate CTRL
+CTRL -> O  : changeState(orderid)
+activate O
+deactivate O
+CTRL -> OR : save(order)
+activate OR
+deactivate OR
+deactivate CTRL
+deactivate CTRL
+UI --> WE: informs operation success
+
+
+
+
+
+
+deactivate WE
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+actor "Customer" as C
+participant ":System" as System
+
+autonumber
+activate C
+C -> System: asks to get the list of questionnaires that the system is asking him to answer
+activate System
+System --> C: shows the requested list of questionnaires
+C -> System: answers the questionnaires he wants
+activate System
+System --> C: informs operation success
+deactivate System
+deactivate C
+@enduml

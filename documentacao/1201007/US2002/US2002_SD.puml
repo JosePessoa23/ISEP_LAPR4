@@ -1,0 +1,64 @@
+@startuml
+autonumber
+'hide footbox
+actor "Warehouse Employee" as WE
+
+participant ":ConfigureAGVUI" as UI
+participant ":ConfigureAGVController" as CTRL
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":AGVRepository" as AR
+participant ":WarehouseRepository" as WR
+participant "agv:AGV" as A
+participant ":AGVDocks" as AD
+participant "warehouse:Warehouse" as W
+
+activate WE
+WE -> UI :asks to configure the AGVs available on the warehouse
+activate UI
+UI --> WE : request data(agvDock)
+deactivate UI
+WE -> UI :types requested data
+activate UI
+UI --> WE : request data(shortDescription,model,maximumWeight,maximumVolume,baseLocation,status,currentTask)
+deactivate UI
+
+WE -> UI : types requested data
+activate UI
+
+UI -> CTRL : configureAGV(shortDescription,model,maximumWeight,maximumVolume,baseLocation,status,currentTask)
+activate CTRL
+
+CTRL -> A** : agv = create(id,shortDescription,model,maximumWeight,maximumVolume,baseLocation,status,currentTask)
+CTRL -> AD : agvDock.set(agv)
+activate AD
+deactivate AD
+CTRL -> W : warehouse.setaddAgvDocks(agvDock)
+activate W
+deactivate W
+CTRL -> PC : repositories()
+activate PC
+PC -> RF : create()
+activate RF
+RF -> AR : create()
+activate AR
+deactivate AR
+RF -> WR : create()
+activate WR
+deactivate WR
+deactivate RF
+|||
+deactivate PC
+
+CTRL -> AR : save(agv)
+activate AR
+deactivate AR
+CTRL -> WR : save(warehouse)
+activate WR
+deactivate WR
+deactivate CTRL
+UI --> WE : informs operations success
+deactivate UI
+
+deactivate WE
+@enduml

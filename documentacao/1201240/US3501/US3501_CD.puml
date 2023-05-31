@@ -1,0 +1,59 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class QuestionnaireListUI
+}
+
+package "Application"{
+class QuestionnaireListController
+}
+
+package "Domain"{
+class Customer
+class Survey
+class Question
+class SurveyAnswer
+class Section
+}
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "Repository"{
+class CustomerRepository{
++findCustomerByEmail(email)
+}
+class SurveyRepository{
++findAll()
+}
+class SurveyAnswerRepository{
++findSurveysAnsweredByCustomer(customer)
+}
+}
+QuestionnaireListUI .-> QuestionnaireListController
+QuestionnaireListController .--> Customer
+QuestionnaireListController .--> Survey
+QuestionnaireListController .--> Section
+QuestionnaireListController .--> Question
+QuestionnaireListController .--> SurveyAnswer
+QuestionnaireListController .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> CustomerRepository
+RepositoryFactory .--> SurveyRepository
+RepositoryFactory .--> SurveyAnswerRepository
+CustomerRepository .--> Customer
+SurveyRepository .--> Survey
+SurveyAnswerRepository .--> SurveyAnswer
+
+
+@enduml

@@ -1,0 +1,42 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+package "order"{
+class Order{
+
+}
+}
+
+
+package "agv"{
+class AGV{
+-id
+}
+
+AGV <<entity>>
+ShortDescription <<value object>>
+Model <<value object>>
+MaximumWeight <<value object>>
+MaximumVolume <<value object>>
+BaseLocation <<value object>>
+Status <<value object>>
+CurrentTask <<value object>>
+}
+
+Order <<entity>>
+AGV <<entity>>
+
+
+Order "1" -- "*" AGV : assigned to >
+AGV  --> "1" ShortDescription
+AGV  --> "1" Model
+AGV  --> "1" MaximumWeight
+AGV  --> "1" MaximumVolume
+AGV  --> "1" BaseLocation
+AGV  --> "1" Status
+AGV  --> "1" CurrentTask
+
+
+@enduml

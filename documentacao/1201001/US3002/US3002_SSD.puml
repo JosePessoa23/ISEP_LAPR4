@@ -1,0 +1,23 @@
+@startuml
+actor "Sales Manager" as SM
+participant ":System" as System
+
+autonumber
+activate SM
+SM -> System: I want to see a statistical report about the questionaires
+activate System
+System --> SM: asks to select the needed data (the intended survey)
+deactivate System
+
+SM -> System: select requested data
+activate System
+System --> SM: shows report
+deactivate System
+
+
+
+deactivate SM
+
+
+
+@enduml

@@ -1,0 +1,69 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class AssignOrderUI
+}
+
+package "Application"{
+class AssignOrderController{
++List<Product_OrderDTOComplete> getOrdersToBePrepared()
+-List<Product_OrderDTOComplete> toDTOOrder( List<Product_Order> list)
++List<AGVDTO> getAGVAvailable(Product_OrderDTOComplete orderDTOComplete)
+-List<AGVDTO> toDTOAGV(List<AGV> list)
+}
+}
+
+package "DTO"{
+class Product_OrderDTOComplete{
+}
+}
+
+
+package "Domain"{
+class AGV{
++toDTO()
+}
+class Product_Order{
++toDTOComplete()
+}
+class Warehouse{
++getOrders()
+}
+}
+
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "Repository"{
+class WarehouseRepository{
++create()
++findAllWarehouses()
+}
+class AGVRepository{
++create()
++findAbleAGVs(totalweight,totalvolume)
+}
+}
+AssignOrderUI .-> AssignOrderController
+AssignOrderController .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> WarehouseRepository
+RepositoryFactory .--> AGVRepository
+WarehouseRepository .--> Warehouse
+AGVRepository .--> AGV
+AssignOrderController .--> Product_Order
+Product_Order .--> AGV
+Product_Order .--> Product_OrderDTOComplete
+
+@enduml

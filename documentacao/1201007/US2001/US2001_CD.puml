@@ -1,0 +1,58 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class AddJsonFileUI
+}
+
+package "Application"{
+class AddJsonFileController{
++addJsonFile(file)
+-WarehousefromJsonFile(file)
+}
+}
+
+package "Domain"{
+class Warehouse{
+}
+class Roww{
+}
+class Aisle{
+}
+class AGVDocks{
+}
+}
+
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "Repository"{
+class WarehouseRepository{
++create()
++save(warehouse)
+}
+}
+AddJsonFileUI .-> AddJsonFileController
+AddJsonFileController .--> Warehouse
+AddJsonFileController .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> WarehouseRepository
+WarehouseRepository .--> Warehouse
+AddJsonFileController .--> Aisle
+AddJsonFileController .--> Roww
+AddJsonFileController .--> AGVDocks
+Warehouse .--> AGVDocks
+Warehouse .--> Roww
+Warehouse .--> Aisle
+
+@enduml

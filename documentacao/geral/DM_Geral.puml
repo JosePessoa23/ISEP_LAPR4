@@ -1,0 +1,86 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+package "warehouse"{
+class Warehouse{
+
+}
+}
+
+package "order"{
+class Order{
+
+}
+}
+
+package "product"{
+class Product{
+}
+}
+
+class ShoppingCart{
+}
+
+package "customer"{
+class Customer{
+}
+}
+
+package "agv"{
+class AGV{
+}
+}
+
+class SalesClerk{
+}
+
+class SalesManager{
+}
+
+class WarehouseEmployee{
+}
+
+class Administrator{
+}
+
+package "survey"{
+class Survey{
+}
+}
+
+Product <<entity>>
+Customer <<entity>>
+SalesClerk <<entity>>
+SalesManager <<entity>>
+WarehouseEmployee <<entity>>
+Administrator <<entity>>
+Survey <<entity>>
+Order <<entity>>
+Warehouse <<entity>>
+AGV <<entity>>
+ShoppingCart <<value object>>
+
+SalesClerk "1" -- "*" Customer : register >
+SalesClerk "1" -- "*" Order : register >
+SalesManager "1" -- "*" Customer : register >
+SalesManager "1" -- "*" Order : register >
+SalesManager "1" -- "*" Survey : carries out >
+WarehouseEmployee "1" -- "*" Warehouse : manages >
+WarehouseEmployee "1" -- "*" AGV : manages >
+Administrator "1" -- "*" SalesManager: manages >
+Administrator "1" -- "*" SalesClerk : manages >
+Administrator "1" -- "*" WarehouseEmployee : manages >
+Administrator "1" -- "*" Customer : manages >
+Customer "1" -- "1" ShoppingCart : has >
+Warehouse "1" -- "*" AGV : has >
+Order "1" -- "*" AGV : assigned to >
+Order "1" -- "*" Product : has >
+ShoppingCart "1" -- "1" Order : converts into >
+ShoppingCart "1" -- "*" Product  : has >
+Customer "1" -- "*" Order : placed by <
+Survey "1" -- "1" Product : about >
+Customer "*" -- "*" Survey : answers >
+
+@enduml

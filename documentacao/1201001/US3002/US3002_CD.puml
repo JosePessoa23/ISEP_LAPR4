@@ -1,0 +1,81 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class ShowReportUI{
++doShow()
+}
+}
+
+package "Application"{
+class ShowReportController{
+-toDto(List<Survey> list)
++getSurveyList()
++getCommonInformation(long survey_id)
++getQuestionInfo()
+}
+}
+
+
+
+package "Domain"{
+class Customer
+class Survey
+class Question
+class SurveyAnswer
+class Section
+}
+
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "DTO"{
+class SurveyDTO
+}
+
+package "Repository"{
+class SurveyRepository{
++create()
++findAll()
++findSurveyByID(survey_id)
++save()
+}
+class CustomerRepository{
++create()
++findAll()
++save()
+}
+class SurveyAnswerRepository{
++create()
++findSurveyAnswerBySurvey(survey_id)
++save()
+}
+}
+
+ShowReportUI .-> ShowReportController
+ShowReportUI .-> SurveyDTO
+ShowReportController .--> PersistenceContext
+ShowReportController .--> SurveyAnswer
+ShowReportController .--> Survey
+ShowReportController .--> SurveyDTO
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> SurveyRepository
+RepositoryFactory .--> SurveyAnswerRepository
+RepositoryFactory .--> CustomerRepository
+SurveyAnswer "1"-->"1" Survey
+SurveyAnswer "1"-->"1" Customer
+Survey "1"-->"*" Section
+Section "1"-->"*" Question
+
+
+@enduml

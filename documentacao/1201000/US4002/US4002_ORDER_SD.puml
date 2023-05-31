@@ -1,0 +1,28 @@
+@startuml
+autonumber
+'hide footbox
+actor "System" as S
+
+
+participant ":RegisterProduct_OrderController" as CTRL
+participant "warehouse:Warehouse" as W
+participant "orders:List<Order>" as OL
+
+
+ref over CTRL
+US1004_SD
+end ref
+activate S
+S -> CTRL: add order to the queue
+activate CTRL
+CTRL -> W: addOrderToBePrepared(order)
+activate W
+W -> OL: add(order)
+activate OL
+|||
+deactivate OL
+deactivate W
+
+
+deactivate S
+@enduml

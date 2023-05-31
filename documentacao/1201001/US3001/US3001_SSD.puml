@@ -1,0 +1,47 @@
+@startuml
+actor "Sales Manager" as SM
+participant ":System" as System
+
+autonumber
+activate SM
+SM -> System: I want to register a new survey
+activate System
+System --> SM: asks to select if he want to put a file or register manually
+deactivate System
+alt choose file
+SM -> System: select requested data
+activate System
+System --> SM: asks to enter the path of the file
+deactivate System
+SM -> System: enter requested data
+activate System
+System --> SM: informs operation success
+deactivate System
+
+else
+SM -> System: select requested data
+activate System
+System --> SM: asks to type data (id,description,num of days ,\ntitle and welcome message)
+deactivate System
+SM --> System : types requested data
+activate System
+loop while the user wants to create sections
+System --> SM : asks to type requested data (section title and section description)
+deactivate System
+SM --> System : type requested data
+activate System
+loop while the user wants to create questions
+System --> SM : asks to select the question type and requests needed data
+deactivate System
+SM --> System : selects and types the requested data
+activate System
+end
+end
+System --> SM: informs operation success
+deactivate System
+deactivate SM
+end
+
+
+
+@enduml

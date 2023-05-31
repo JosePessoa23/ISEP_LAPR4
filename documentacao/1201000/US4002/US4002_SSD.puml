@@ -1,0 +1,14 @@
+@startuml
+actor "Project Manager" as PM
+participant ":System" as System
+
+autonumber
+activate WE
+WE -> System: I want to automatically assign tasks to AGVs
+activate System
+System --> WE: shows the orders by sorted and informs operation success
+deactivate System
+deactivate WE
+
+
+@enduml

@@ -1,0 +1,60 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class ConfigureAGVUI
+}
+
+package "Application"{
+class ConfigureAGVController{
++configureAGV(agvDocks,id,shortDescription,model,maximumWeight,maximumVolume,baseLocation,status,currentTask)
+}
+}
+
+package "Domain"{
+class Warehouse{
+}
+class AGV{
+}
+class AGVDocks{
+}
+}
+
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "Repository"{
+class WarehouseRepository{
++create()
++save(warehouse)
++findAllAvgDocksnull()
+}
+class AGVRepository{
++create()
++save(agv)
+}
+}
+ConfigureAGVUI .-> ConfigureAGVController
+ConfigureAGVController .--> Warehouse
+ConfigureAGVController .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> WarehouseRepository
+RepositoryFactory .--> AGVRepository
+WarehouseRepository .--> Warehouse
+WarehouseRepository .--> AGVDocks
+AGVRepository .--> AGV
+ConfigureAGVController .--> AGVDocks
+Warehouse .--> AGVDocks
+AGVDocks .--> AGV
+
+@enduml

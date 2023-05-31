@@ -1,0 +1,50 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class RegisterCustomerUI
+}
+
+package "Application"{
+class RegisterCustomerController
+}
+
+package "Builder"{
+class CustomerBuilder{
++createCustomer(name, VatID, email, phoneNumber,\n birthday, billingAddress, deliveringAddress, gender)
+}
+}
+
+package "Domain"{
+class Customer
+}
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "Repository"{
+class CustomerRepository{
++create()
++save(customer)
+}
+}
+RegisterCustomerUI .-> RegisterCustomerController
+RegisterCustomerController .--> CustomerBuilder
+RegisterCustomerController .--> Customer
+RegisterCustomerController .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> CustomerRepository
+CustomerRepository .--> Customer
+CustomerBuilder .--> Customer
+
+
+@enduml

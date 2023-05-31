@@ -1,0 +1,10 @@
+diff a/base.core/src/main/java/eapli/base/infrastructure/persistence/RepositoryFactory.java b/base.core/src/main/java/eapli/base/infrastructure/persistence/RepositoryFactory.java	(rejected hunks)
+@@ -71,6 +71,8 @@
+      */
+     ClientUserRepository clientUsers();
+     WarehouseRepository warehouse();
++    OrderRepository order();
++
+ 
+     /**
+      *

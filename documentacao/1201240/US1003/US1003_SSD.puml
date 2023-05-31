@@ -1,0 +1,16 @@
+@startuml
+actor "Sales Clerk" as SC
+participant ":System" as System
+
+autonumber
+activate SC
+SC -> System: asks to register a new customer
+activate System
+System --> SC: requests data (name, VatID, email, phoneNumber,\n birthday, billingAddress, deliveringAddress, gender)
+deactivate System
+SC -> System: types requested data
+activate System
+System --> SC: informs operation success
+deactivate System
+deactivate SC
+@enduml

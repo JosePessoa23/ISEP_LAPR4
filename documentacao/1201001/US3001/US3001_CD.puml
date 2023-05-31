@@ -1,0 +1,70 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class RegisterSurveyUI
+}
+
+package "Application"{
+class RegisterSurveyController{
++registerSurvey(String code, String description, Date finalDate, String title, String welcomeMessage,List<Integer> num_questions ,List<SectionDTO> sectionsListdto, List<Question> questionList)
++registerSurvey(String file)
+}
+class Grammar{
+}
+}
+
+package "DTO"{
+class SectionDTO{
+}
+}
+
+
+package "Domain"{
+class Survey{
++create()
+}
+class Section{
++create()
+}
+class Question{
++create()
+}
+}
+
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "Repository"{
+class SurveyRepository{
++create()
++save()
+}
+}
+
+RegisterSurveyUI .-> RegisterSurveyController
+RegisterSurveyController .--> PersistenceContext
+RegisterSurveyController .--> Section
+RegisterSurveyController .--> SectionDTO
+RegisterSurveyController .--> Question
+RegisterSurveyController .-> Grammar
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> SurveyRepository
+SurveyRepository .--> Survey
+RegisterSurveyController .--> Survey
+Survey .--> Section
+Section .--> SectionDTO
+Section .--> Question
+
+
+@enduml

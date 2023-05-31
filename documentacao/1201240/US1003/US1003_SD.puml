@@ -1,0 +1,51 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+'hide footbox
+actor "Sales Clerk" as SC
+participant ":RegisterCustomerUI" as RCUI
+participant ":RegisterCustomerController" as RCC
+participant "customer: Customer" as C
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":CustomerRepository" as CR
+
+
+autonumber
+activate SC
+SC -> RCUI: asks to register a new customer
+activate RCUI
+RCUI --> SC: requests data (firstName, lastName, vatID, email, phoneNumber,\n gender, birthDate, billingAddress, deliveringAddress)
+deactivate RCUI
+
+
+SC -> RCUI: types requested data
+activate RCUI
+
+RCUI -> RCC: registerCustomer(firstName, lastName, vatID, email, phoneNumber,\n gender, birthDate, billingAddress, deliveringAddress)
+
+activate RCC
+RCC -> C: customer = create(firstName, lastName, vatID, email, phoneNumber,\n gender, birthDate, billingAddress, deliveringAddress)
+activate C
+deactivate C
+RCC -> PC : repositories()
+activate PC
+PC -> RF : create()
+activate RF
+RF -> CR : create()
+activate CR
+deactivate CR
+deactivate RF
+|||
+deactivate PC
+
+RCC -> CR: save(customer)
+activate CR
+deactivate CR
+
+RCUI --> SC: informs operation success
+deactivate RCUI
+deactivate SC
+
+@enduml

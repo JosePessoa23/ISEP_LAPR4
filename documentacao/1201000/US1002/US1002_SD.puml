@@ -1,0 +1,62 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+'hide footbox
+actor "Sales Clerk" as SC
+participant ":ViewCatalogUI" as CUI
+participant ":ProductCatalogController" as PCC
+participant "product: Product" as P
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant "productRepository\n:ProductRepository" as PR
+
+
+autonumber
+activate SC
+SC -> CUI: ask to view the products catalog
+activate CUI
+CUI -> PCC: createRepository()
+activate PCC
+PCC -> PC : repositories()
+activate PC
+PC -> RF : create()
+activate RF
+RF -> PR** : create()
+deactivate RF
+deactivate PC
+deactivate PCC
+CUI -> SC: ask to select one order criteria
+deactivate CUI
+loop until user skip
+CUI --> SC: ask if wants to add a filter
+SC --> CUI: type a filter or skip
+activate CUI
+end loop
+
+alt filtered
+CUI --> PCC: catalog = getCatalogFilter(filters, sortOptn)
+activate PCC
+|||
+deactivate PCC
+
+PCC -> PR: catalog = getCatalog(options)
+activate PR
+|||
+deactivate PR
+deactivate PCC
+
+else notFiltered
+CUI --> PCC: catalog = getCatalogNoFilter(sortOptn)
+activate PCC
+
+PCC -> PR: catalog = getCatalog(options)
+activate PR
+|||
+deactivate PR
+deactivate PCC
+
+end
+
+
+@endumll

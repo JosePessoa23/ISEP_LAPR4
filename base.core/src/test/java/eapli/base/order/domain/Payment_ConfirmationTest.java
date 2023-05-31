@@ -1,0 +1,13 @@
+package eapli.base.order.domain;
+
+import org.junit.Test;
+
+
+public class Payment_ConfirmationTest {
+
+    @Test(expected = IllegalArgumentException.class)
+    public void paymentConfirmationRules() {
+        Payment_Confirmation payment_confirmation = new Payment_Confirmation("hgwrhnugderwetgebyugybwergbeuqrnioqmviowemvimqoivnioqenrbiurbwiugnioerwghgwrhnugderwetgebyugybwergbeuqrnioqmviowemvimqoivnioqenrbiurbwiugnioerwghgwrhnugderwetgebyugybwergbeuqrnioqmviowemvimqoivnioqenrbiurbwiugnioerwghgwrhnugderwetgebyugybwergbeuqrnioqmviowemvimqoivnioqenrbiurbwiugnioerwghgwrhnugderwetgebyugybwergbeuqrnioqmviowemvimqoivnioqenrbiurbwiugnioerwghgwrhnugderwetgebyugybwergbeuqrnioqmviowemvimqoivnioqenrbiurbwiugnioerwghgwrhnugderwetgebyugybwergbeuqrnioqmviowemvimqoivnioqenrbiurbwiugnioerwghgwrhnugderwetgebyugybwergbeuqrnioqmviowemvimqoivnioqenrbiurbwiugn");
+    }
+
+}

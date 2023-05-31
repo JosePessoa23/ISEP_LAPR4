@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Sales Clerk" as SC
+participant ":System" as System
+
+autonumber
+
+SC -> System: ask to view the products catalog
+System --> SC: ask to select one order criteria
+SC --> System: select order criteria
+loop until user skip
+System --> SC: ask if wants to add a filter
+SC --> System: type a filter or skip
+end loop
+System --> SC: shows products catalog
+
+
+@enduml

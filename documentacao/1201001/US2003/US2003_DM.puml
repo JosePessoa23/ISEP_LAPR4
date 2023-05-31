@@ -1,0 +1,64 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+package "order"{
+class Order{
+
+}
+
+Product <<entity>>
+Customer <<entity>>
+Shipment_method_cost <<value object>>
+Total_amount <<value object>>
+Payment_confirmation <<value object>>
+Payment_method <<value object>>
+Address <<value object>>
+State <<value object>>
+}
+
+
+package "agv"{
+class AGV{
+-id
+}
+
+AGV <<entity>>
+ShortDescription <<value object>>
+Model <<value object>>
+MaximumWeight <<value object>>
+MaximumVolume <<value object>>
+BaseLocation <<value object>>
+Status <<value object>>
+CurrentTask <<value object>>
+}
+
+class WarehouseEmployee{
+}
+
+WarehouseEmployee <<entity>>
+Order <<entity>>
+AGV <<entity>>
+
+WarehouseEmployee "1" -- "*" AGV : manages >
+Order "1" -- "*" AGV : assigned to >
+AGV  --> "1" ShortDescription
+AGV  --> "1" Model
+AGV  --> "1" MaximumWeight
+AGV  --> "1" MaximumVolume
+AGV  --> "1" BaseLocation
+AGV  --> "1" Status
+AGV  --> "1" CurrentTask
+
+Order "1" -- "*" Product : contains >
+Order "1" -- "1" Shipment_method_cost : has >
+Order  --> "2" Address
+Order  --> "1" Customer
+Order  --> "1" Total_amount
+Order  --> "1" Payment_method
+Order  --> "1" Payment_confirmation
+Order  --> "1" State
+
+
+@enduml

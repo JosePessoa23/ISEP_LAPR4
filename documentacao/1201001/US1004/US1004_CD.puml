@@ -1,0 +1,95 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "product"{
+
+package "product.presentation"{
+class ViewCatalogUI{
+}
+}
+
+package "product.Persistence"{
+class ProductRepository{
++Iterable<Product> findAllProducts()
++Product findProductByID(String str)
+}
+}
+
+package "product.domain"{
+class Product
+}
+
+}
+
+package "customer"{
+
+package "customer.presentation"{
+class RegisterCustomerUI{
+}
+}
+
+package "customer.persistence"{
+class CustomerRepository{
++Customer findCustumerByID(String str);
+}
+}
+
+package "customer.domain"{
+class Customer
+}
+
+}
+
+package "order"{
+
+package "Presentation"{
+class RegisterProduct_OrderUI
+}
+
+package "Application"{
+class RegisterProduct_OrderController
+}
+
+
+package "Domain"{
+class Product_Order
+}
+
+
+
+package "Repository"{
+class OrderRepository{
++create()
++save(customer)
+}
+}
+
+}
+
+
+package "eapli.base.infrastructure.persistence"{
+
+class PersistenceContext{
++repositories()
+}
+class RepositoryFactory{
++create()
+}
+}
+
+
+RegisterProduct_OrderUI .-> RegisterProduct_OrderController
+RegisterProduct_OrderUI .--> ViewCatalogUI
+RegisterProduct_OrderUI .-> RegisterCustomerUI
+RegisterProduct_OrderController .--> Product_Order
+RegisterProduct_OrderController .--> PersistenceContext
+RegisterProduct_OrderController .--> ProductRepository
+RegisterProduct_OrderController .-> CustomerRepository
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> OrderRepository
+OrderRepository .--> Product_Order
+CustomerRepository .--> Customer
+ProductRepository .--> Product
+
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+actor "Sales Clerk" as WE
+participant ":System" as System
+
+autonumber
+activate WE
+WE -> System: I want to access the list of orders that had been dispatched for customer \n delivery and be able to update some of those orders to as being delivered.
+activate System
+System --> WE: asks to select the desired order from the list
+deactivate System
+WE -> System: selects the requested data
+activate System
+System --> WE: informs operation success
+deactivate WE
+
+
+@enduml

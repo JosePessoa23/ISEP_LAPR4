@@ -1,0 +1,68 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class AutoAssignOrderUI
+}
+
+package "Application"{
+class AutoAssignOrderController{
++Product_OrderDTO autoAssignOrder()
+-Product_OrderDTO toDTOOrder(Product_Order order)
+}
+}
+
+package "DTO"{
+class Product_OrderDTO{
+}
+}
+
+
+package "Domain"{
+class AGV{
++occupyAGV()
++freeAGV()
+}
+class Product_Order{
++toDTO()
+}
+class Warehouse{
++Product_Order getNextOrder()
+}
+}
+
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "Repository"{
+class WarehouseRepository{
++create()
++findAllWarehouses()
+}
+class AGVRepository{
++create()
++findAbleAGVs(totalweight,totalvolume)
+}
+}
+AutoAssignOrderUI .-> AutoAssignOrderController
+AutoAssignOrderController .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> WarehouseRepository
+RepositoryFactory .--> AGVRepository
+WarehouseRepository .--> Warehouse
+AGVRepository .--> AGV
+AutoAssignOrderController .--> Product_Order
+Product_Order .--> AGV
+Product_Order .--> Product_OrderDTO
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+actor "Warehouse Employee" as WE
+participant ":System" as System
+
+autonumber
+activate WE
+WE -> System: I want to see the list of orders that have already been prepared by the AGVs and be able to  \n update any of those orders as having been dispatched for customer delivery.
+activate System
+System --> WE: asks to select the desired order from the list
+deactivate System
+WE -> System: selects the requested data
+activate System
+System --> WE: informs operation success
+deactivate WE
+
+
+@enduml

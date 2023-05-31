@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Sales Clerk" as SC
+participant ":System" as System
+
+autonumber
+
+activate SC
+SC -> System: ask to specify a new product
+activate System
+System --> SC: shows categories and ask to select one
+deactivate System
+SC --> System: select a category
+activate System
+System --> SC: shows available locations and ask to select one
+deactivate System
+SC --> System: select a locations
+activate System
+System --> SC: request data(code, cat, brand, priceWithoutTaxes, priceWithTaxes, barcode, productionCode, reference,\n shortDescription, extendedDescription, photoPath, warehouseID, aisleID, rowID, weight, volume)
+deactivate System
+SC --> System: type requested data
+activate System
+System --> SC: informs operation success
+deactivate System
+deactivate SC
+@enduml

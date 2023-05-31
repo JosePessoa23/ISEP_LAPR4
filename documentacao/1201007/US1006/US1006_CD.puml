@@ -1,0 +1,49 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class DeliveredOrderUI
+}
+
+package "Application"{
+class DeliveredOrderController{
++getOrdersToBeDelivered()
++changeStatus(orderdto)
+}
+}
+
+package "Domain"{
+class Product_Order{
++toOrderDTO(order)
+}
+}
+
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
+}
+}
+
+package "Repository"{
+class OrderRepository{
++findAllOrderDispatched()
++findOrderWithid(id)
++save(order)
+}
+
+}
+DeliveredOrderUI .-> DeliveredOrderController
+DeliveredOrderController .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> OrderRepository
+OrderRepository .--> Product_Order
+DeliveredOrderController .--> Product_Order
+
+
+@enduml

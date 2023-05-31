@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="795px" preserveAspectRatio="none" style="width:1943px;height:795px;background:#FFFFFF;" version="1.1" viewBox="0 0 1943 795" width="1943px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="602.4219" style="stroke:#181818;stroke-width:1.0;" width="10" x="72.5" y="92.6094"/><rect fill="#FFFFFF" height="351.9609" style="stroke:#181818;stroke-width:1.0;" width="10" x="540.5" y="131.3125"/><rect fill="#FFFFFF" height="190.4063" style="stroke:#181818;stroke-width:1.0;" width="10" x="540.5" y="513.625"/><rect fill="#FFFFFF" height="291.2578" style="stroke:#181818;stroke-width:1.0;" width="10" x="727.5" y="161.6641"/><rect fill="#FFFFFF" height="120.7031" style="stroke:#181818;stroke-width:1.0;" width="10" x="727.5" y="543.9766"/><rect fill="#FFFFFF" height="76.7969" style="stroke:#181818;stroke-width:1.0;" width="10" x="896" y="192.0156"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="1210" y="299.1641"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="1210" y="634.6797"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="1383" y="385.2188"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="1383" y="574.3281"/><rect height="79.0547" style="stroke:#000000;stroke-width:1.5;fill:none;" width="837" x="634" y="344.5156"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="77" x2="77" y1="82.6094" y2="713.0313"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="545" x2="545" y1="82.6094" y2="713.0313"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="732" x2="732" y1="82.6094" y2="713.0313"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="901" x2="901" y1="82.6094" y2="713.0313"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="1048" x2="1048" y1="82.6094" y2="713.0313"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="1215" x2="1215" y1="82.6094" y2="713.0313"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="1388" x2="1388" y1="82.6094" y2="713.0313"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="1595" x2="1595" y1="82.6094" y2="713.0313"/><line style="stroke:#181818;stroke-width:0.5;fill:none;stroke-dasharray:5.0,5.0;" x1="1833" x2="1833" y1="82.6094" y2="713.0313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="5" y="79.5332">Warehouse Employee</text><ellipse cx="77.5" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M77.5,21.5 L77.5,48.5 M64.5,29.5 L90.5,29.5 M77.5,48.5 L64.5,63.5 M77.5,48.5 L90.5,63.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="5" y="726.5645">Warehouse Employee</text><ellipse cx="77.5" cy="738.1406" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M77.5,746.1406 L77.5,773.1406 M64.5,754.1406 L90.5,754.1406 M77.5,773.1406 L64.5,788.1406 M77.5,773.1406 L90.5,788.1406 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="127" x="482" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="489" y="71.5332">:DeliveredOrderUI</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="127" x="482" y="712.0313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="489" y="733.5645">:DeliveredOrderUI</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="177" x="644" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="163" x="651" y="71.5332">:DeliveredOrderController</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="177" x="644" y="712.0313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="163" x="651" y="733.5645">:DeliveredOrderController</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="140" x="831" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="838" y="71.5332">:PersistenceContext</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="140" x="831" y="712.0313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="838" y="733.5645">:PersistenceContext</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="134" x="981" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="988" y="71.5332">:RepositoryFactory</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="134" x="981" y="712.0313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="988" y="733.5645">:RepositoryFactory</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="180" x="1125" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="1132" y="71.5332">:Product_OrderRepository</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="180" x="1125" y="712.0313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="1132" y="733.5645">:Product_OrderRepository</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="146" x="1315" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="1322" y="71.5332">order:Product_Order</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="146" x="1315" y="712.0313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="1322" y="733.5645">order:Product_Order</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="248" x="1471" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="234" x="1478" y="71.5332">orderdto:Product_OrderDtoComplete</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="248" x="1471" y="712.0313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="234" x="1478" y="733.5645">orderdto:Product_OrderDtoComplete</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="208" x="1729" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="194" x="1736" y="71.5332">orderslist:List&lt;Product_Order&gt;</text><rect fill="#E2E2F0" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="208" x="1729" y="712.0313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="194" x="1736" y="733.5645">orderslist:List&lt;Product_Order&gt;</text><rect fill="#FFFFFF" height="602.4219" style="stroke:#181818;stroke-width:1.0;" width="10" x="72.5" y="92.6094"/><rect fill="#FFFFFF" height="351.9609" style="stroke:#181818;stroke-width:1.0;" width="10" x="540.5" y="131.3125"/><rect fill="#FFFFFF" height="190.4063" style="stroke:#181818;stroke-width:1.0;" width="10" x="540.5" y="513.625"/><rect fill="#FFFFFF" height="291.2578" style="stroke:#181818;stroke-width:1.0;" width="10" x="727.5" y="161.6641"/><rect fill="#FFFFFF" height="120.7031" style="stroke:#181818;stroke-width:1.0;" width="10" x="727.5" y="543.9766"/><rect fill="#FFFFFF" height="76.7969" style="stroke:#181818;stroke-width:1.0;" width="10" x="896" y="192.0156"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="1210" y="299.1641"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="1210" y="634.6797"/><rect fill="#FFFFFF" height="30.3516" style="stroke:#181818;stroke-width:1.0;" width="10" x="1383" y="385.2188"/><rect fill="#FFFFFF" height="30" style="stroke:#181818;stroke-width:1.0;" width="10" x="1383" y="574.3281"/><polygon fill="#181818" points="528.5,127.3125,538.5,131.3125,528.5,135.3125,532.5,131.3125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="82.5" x2="534.5" y1="131.3125" y2="131.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="89.5" y="118.2803">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="418" x="100.5" y="110.1045">I want to access the list of orders that had been dispatched for customer</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="424" x="104.5" y="126.4561">delivery and be able to update some of those orders to as being delivered.</text><polygon fill="#181818" points="715.5,157.6641,725.5,161.6641,715.5,165.6641,719.5,161.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="550.5" x2="721.5" y1="161.6641" y2="161.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="557.5" y="156.8076">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="147" x="568.5" y="156.8076">getOrdersToBeDelivered()</text><polygon fill="#181818" points="884,188.0156,894,192.0156,884,196.0156,888,192.0156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="737.5" x2="890" y1="192.0156" y2="192.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="744.5" y="187.1592">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="75" x="755.5" y="187.1592">repositories()</text><rect height="41.4453" style="stroke:#000000;stroke-width:1.5;fill:none;" width="146" x="828" y="200.0156"/><path d="M828,200.0156 L890,200.0156 L890,208.0156 L880,218.0156 L828,218.0156 L828,200.0156 " fill="#EEEEEE" style="stroke:#000000;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="17" x="841" y="215.5107">ref</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="114" x="844" y="234.4727">OrderRepository_SD</text><polygon fill="#181818" points="748.5,264.8125,738.5,268.8125,748.5,272.8125,744.5,268.8125" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="742.5" x2="900" y1="268.8125" y2="268.8125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="754.5" y="263.9561">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="4" x="765.5" y="263.9561"> </text><polygon fill="#181818" points="1198,295.1641,1208,299.1641,1198,303.1641,1202,299.1641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="737.5" x2="1204" y1="299.1641" y2="299.1641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="744.5" y="294.3076">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="140" x="755.5" y="294.3076">findAllOrderDispatched()</text><polygon fill="#181818" points="748.5,325.5156,738.5,329.5156,748.5,333.5156,744.5,329.5156" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="742.5" x2="1214" y1="329.5156" y2="329.5156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="754.5" y="324.6592">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="765.5" y="324.6592">orderslist</text><path d="M634,344.5156 L707,344.5156 L707,352.8672 L697,362.8672 L634,362.8672 L634,344.5156 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.5;"/><rect fill="none" height="79.0547" style="stroke:#000000;stroke-width:1.5;" width="837" x="634" y="344.5156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="28" x="649" y="359.0107">loop</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="162" x="722" y="357.9346">[for each order on orderslist]</text><polygon fill="#181818" points="1371,381.2188,1381,385.2188,1371,389.2188,1375,385.2188" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="737.5" x2="1377" y1="385.2188" y2="385.2188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="744.5" y="380.3623">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="755.5" y="380.3623">toOrderDTO(order)</text><polygon fill="#181818" points="748.5,411.5703,738.5,415.5703,748.5,419.5703,744.5,415.5703" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="742.5" x2="1387" y1="415.5703" y2="415.5703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="754.5" y="410.7139">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="765.5" y="410.7139">orderDTO</text><polygon fill="#181818" points="561.5,448.9219,551.5,452.9219,561.5,456.9219,557.5,452.9219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="555.5" x2="731.5" y1="452.9219" y2="452.9219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="567.5" y="448.0654">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="79" x="578.5" y="448.0654">orderslistDTO</text><polygon fill="#181818" points="93.5,479.2734,83.5,483.2734,93.5,487.2734,89.5,483.2734" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="87.5" x2="544.5" y1="483.2734" y2="483.2734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="99.5" y="478.417">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="255" x="117.5" y="478.417">asks to select the desired order from the list</text><polygon fill="#181818" points="528.5,509.625,538.5,513.625,528.5,517.625,532.5,513.625" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="82.5" x2="534.5" y1="513.625" y2="513.625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="89.5" y="508.7686">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="154" x="107.5" y="508.7686">selects the requested data</text><polygon fill="#181818" points="715.5,539.9766,725.5,543.9766,715.5,547.9766,719.5,543.9766" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="550.5" x2="721.5" y1="543.9766" y2="543.9766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="557.5" y="539.1201">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="128" x="575.5" y="539.1201">changeState(orderdto)</text><polygon fill="#181818" points="1371,570.3281,1381,574.3281,1371,578.3281,1375,574.3281" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="737.5" x2="1377" y1="574.3281" y2="574.3281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="744.5" y="569.4717">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="120" x="762.5" y="569.4717">changeState(orderid)</text><polygon fill="#181818" points="1198,630.6797,1208,634.6797,1198,638.6797,1202,634.6797" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="737.5" x2="1204" y1="634.6797" y2="634.6797"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="744.5" y="629.8232">14</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="63" x="762.5" y="629.8232">save(order)</text><polygon fill="#181818" points="88.5,691.0313,78.5,695.0313,88.5,699.0313,84.5,695.0313" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="82.5" x2="539.5" y1="695.0313" y2="695.0313"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="94.5" y="690.1748">15</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="152" x="112.5" y="690.1748">informs operation success</text><!--MD5=[2ae7579d310ec37fefe659f8d6bd34eb]
+@startuml
+autonumber
+'hide footbox
+actor "Warehouse Employee" as WE
+
+participant ":DeliveredOrderUI" as UI
+participant ":DeliveredOrderController" as CTRL
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":Product_OrderRepository" as OR
+participant "order:Product_Order" as O
+participant "orderdto:Product_OrderDtoComplete" as ODC
+participant "orderslist:List<Product_Order>" as OL
+
+
+activate WE
+WE -> UI: I want to access the list of orders that had been dispatched for customer \n delivery and be able to update some of those orders to as being delivered.
+activate UI
+UI -> CTRL : getOrdersToBeDelivered()
+activate CTRL
+CTRL -> PC : repositories()
+
+activate PC
+ref over PC
+OrderRepository_SD
+end ref
+PC - -> CTRL
+deactivate PC
+
+CTRL -> OR : findAllOrderDispatched()
+activate OR
+OR - -> CTRL : orderslist
+deactivate OR
+loop for each order on orderslist
+CTRL -> O : toOrderDTO(order)
+activate O
+O - -> CTRL :orderDTO
+deactivate O
+end
+CTRL - -> UI :orderslistDTO
+
+deactivate CTRL
+
+UI - -> WE: asks to select the desired order from the list
+deactivate UI
+WE -> UI: selects the requested data
+activate UI
+UI -> CTRL : changeState(orderdto)
+activate CTRL
+CTRL -> O  : changeState(orderid)
+activate O
+deactivate O
+CTRL -> OR : save(order)
+activate OR
+deactivate OR
+deactivate CTRL
+deactivate CTRL
+UI - -> WE: informs operation success
+
+
+
+
+
+
+deactivate WE
+@enduml
+
+@startuml
+autonumber
+actor "Warehouse Employee" as WE
+
+participant ":DeliveredOrderUI" as UI
+participant ":DeliveredOrderController" as CTRL
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":Product_OrderRepository" as OR
+participant "order:Product_Order" as O
+participant "orderdto:Product_OrderDtoComplete" as ODC
+participant "orderslist:List<Product_Order>" as OL
+
+
+activate WE
+WE -> UI: I want to access the list of orders that had been dispatched for customer \n delivery and be able to update some of those orders to as being delivered.
+activate UI
+UI -> CTRL : getOrdersToBeDelivered()
+activate CTRL
+CTRL -> PC : repositories()
+
+activate PC
+ref over PC
+OrderRepository_SD
+end ref
+PC - -> CTRL
+deactivate PC
+
+CTRL -> OR : findAllOrderDispatched()
+activate OR
+OR - -> CTRL : orderslist
+deactivate OR
+loop for each order on orderslist
+CTRL -> O : toOrderDTO(order)
+activate O
+O - -> CTRL :orderDTO
+deactivate O
+end
+CTRL - -> UI :orderslistDTO
+
+deactivate CTRL
+
+UI - -> WE: asks to select the desired order from the list
+deactivate UI
+WE -> UI: selects the requested data
+activate UI
+UI -> CTRL : changeState(orderdto)
+activate CTRL
+CTRL -> O  : changeState(orderid)
+activate O
+deactivate O
+CTRL -> OR : save(order)
+activate OR
+deactivate OR
+deactivate CTRL
+deactivate CTRL
+UI - -> WE: informs operation success
+
+
+
+
+
+
+deactivate WE
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 14:29:17 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

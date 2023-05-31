@@ -1,0 +1,81 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+package "AGVManager"{
+package "console"{
+class AGVDigitalTwinApp{
++connect(address, port)
+}
+}
+}
+
+package "Application"{
+class AutoAssignOrderController{
++Product_OrderDTO autoAssignOrder()
+-Product_OrderDTO toDTOOrder(Product_Order order)
+}
+}
+
+package "assignorder"{
+package "presentation"{
+class AssignOrderProtocolServer{
++AssignOrderProtocolServer(parser)
+-listen(port)
++start(port, blocking)
+}
+}
+class AGVManagerServer{
+-AGVManagerServer()
++buildServerDependencies()
+}
+}
+
+package "Server"{
+class AssignOrderProtocolMessageParser{
++AssignOrderProtocolMessageParser(controller)
++parse(inputLine)
+}
+class AssignOrderProtocolRequest{
++AssignOrderProtocolRequest(controller, inputRequest)
++execute()
++isGoodbye()
+}
+class AssignOrderRequest{
++AssignOrderRequest(controller, request)
++execute()
++buildResponse(token)
+}
+class BadRequest{
++BadRequest(request, errorDescription)
++messageType()
+}
+class BaseErrorRequest{
++BaseErrorRequest(request, errorDescription)
++BaseErrorRequest(request)
++execute()
++buildResponse()
++messageType()
+}
+class UnknownRequest{
++UnknownRequest(inputLine)
++messageType()
+}
+}
+
+AGVManagerServer .-> AssignOrderProtocolServer
+AGVManagerServer .-> AssignOrderProtocolMessageParser
+AssignOrderProtocolMessageParser .-> AutoAssignOrderController
+AssignOrderProtocolMessageParser .-> UnknownRequest
+AssignOrderProtocolMessageParser .-> BadRequest
+AssignOrderProtocolMessageParser .-> AssignOrderRequest
+BaseErrorRequest .-> UnknownRequest
+BaseErrorRequest .-> BadRequest
+AssignOrderProtocolServer .-> BaseErrorRequest
+AssignOrderProtocolServer .-> AssignOrderProtocolRequest
+AssignOrderProtocolRequest .-> BaseErrorRequest
+AGVDigitalTwinApp .-> AssignOrderProtocolServer
+
+
+
+@enduml

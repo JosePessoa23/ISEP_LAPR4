@@ -1,0 +1,114 @@
+@startuml
+autonumber
+'hide footbox
+actor "Sales Manager" as SM
+
+participant ":RegisterSurveyUI" as UI
+participant ":RegisterSurveyController" as CTRL
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":Grammar" as G
+participant ":SurveyRepository" as SR
+participant "survey:Survey" as S
+participant "sectionDTO:SectionDTO" as SEDTO
+participant "question:Question" as Q
+
+
+
+autonumber
+activate SM
+SM -> UI: I want to register a new survey
+activate UI
+UI --> SM: asks to select if he want to put a file or register manually
+deactivate UI
+alt choose file
+SM -> UI: select requested data
+activate UI
+UI --> SM: asks to enter the path of the file
+deactivate UI
+SM -> UI: enter requested data
+activate UI
+UI --> CTRL : registerSurvey(file)
+activate CTRL
+CTRL -> PC : repositories()
+
+activate PC
+ref over PC
+SurveyRepository_SD
+end ref
+PC --> CTRL
+deactivate PC
+CTRL -> G : checksurvey(file)
+activate G
+deactivate G
+
+CTRL --> UI : informs operation success
+deactivate CTRL
+UI -> CTRL : registerSurvey(id,description,data,title,welcome_message,num_questions,sectionDTOList,questionList)
+activate CTRL
+CTRL -> S : survey = create(code,description,finalDate,title,welcomeMessage,sectionList);
+activate S
+deactivate S
+CTRL -> SR : save(survey)
+activate SR
+deactivate SR
+CTRL --> UI : informs operation success
+deactivate CTRL
+UI --> SM: informs operation success
+deactivate UI
+
+else
+SM -> UI: select requested data
+activate UI
+UI --> SM: asks to type data (id,description,num of days ,\ntitle and welcome message)
+deactivate UI
+SM --> UI : types requested data
+activate UI
+loop while the user wants to create sections
+UI --> SM : asks to type requested data (section title and section description)
+deactivate UI
+SM --> UI : type requested data
+activate UI
+UI -> SEDTO : sectionDTO = create(sectionId,sectiontitle,sectiondescription,sectionobli,section_condition)
+activate SEDTO
+deactivate SEDTO
+UI -> UI : sectionDTOList.add(sectionDTO)
+loop while the user wants to create questions
+UI --> SM : asks to select the question type and requests needed data
+deactivate UI
+SM --> UI : selects and types the requested data
+activate UI
+UI -> Q : question = create(question,questionId,question_type)
+activate Q
+deactivate Q
+UI -> UI : questionList.add(question)
+end
+end
+UI -> CTRL : registerSurvey(id,description,data,title,welcome_message,num_questions,sectionDTOList,questionList)
+activate CTRL
+CTRL -> S : survey = create(code,description,finalDate,title,welcomeMessage,sectionList);
+activate S
+deactivate S
+CTRL -> SR : save(survey)
+activate SR
+deactivate SR
+CTRL --> UI : informs operation success
+deactivate CTRL
+UI --> SM: informs operation success
+deactivate UI
+deactivate SM
+end
+
+
+
+
+
+
+
+
+
+
+
+
+deactivate SM
+@enduml

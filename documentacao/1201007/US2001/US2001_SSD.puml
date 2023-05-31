@@ -1,0 +1,16 @@
+@startuml
+actor "Warehouse Employee" as WE
+participant ":System" as System
+
+autonumber
+activate WE
+WE -> System: ask to set up the warehouse plant by uploading a JSON file
+activate System
+System --> WE: request data(fileName)
+deactivate System
+WE -> System: types requested data
+activate System
+System --> WE: informs operations success
+deactivate System
+deactivate WE
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class ViewCatalogUI
+}
+
+package "Application"{
+class ProductCatalogController{
++getCatalogFilter(filters, sortOptn)
++getCatalogNoFilter(sortOptn)
+}
+}
+
+package "Domain"{
+class Product
+}
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "Repository"{
+class ProductRepository{
++getCatalog()
+}
+}
+ViewCatalogUI .-> ProductCatalogController
+ProductCatalogController .--> Product
+ProductCatalogController .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> ProductRepository
+ProductRepository .--> Product
+
+
+@enduml

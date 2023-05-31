@@ -1,0 +1,71 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+package "warehouse"{
+class Warehouse{
+}
+
+class Aisle{
+-id
+-beginLengthSquare
+-beginWidthSquare
+-endLengthSquare
+-endWidthSquare
+-depthLengthSquare
+-depthWidthSquare
+-accessibilityDirection
+}
+
+class Row{
+-id
+-beginLengthSquare
+-beginWidthSquare
+-endLengthSquare
+-endWidthSquare
+}
+
+class Shelf{
+-id
+-binSize
+-numberOfBins
+-maxBins
+}
+
+class AGVDocks{
+-id
+-beginl
+-beginw
+-endl
+-endw
+-depthl
+-depthw
+-accessibility
+}
+
+Warehouse <<entity>>
+WarehouseEmployee <<entity>>
+Shelf <<value object>>
+AGVDocks <<entity>>
+Row <<value object>>
+Aisle <<value object>>
+Description <<value object>>
+Length <<value object>>
+Width <<value object>>
+SmallestSquare <<value object>>
+Unit <<value object>>
+}
+
+WarehouseEmployee "1" -- "*" Warehouse : manages >
+Warehouse "1" -- "*" AGVDocks : contains >
+Warehouse  --> "1..*" Shelf
+Warehouse  --> "1..*" Row
+Warehouse  --> "1..*" Aisle
+Warehouse  --> "1*" Description
+Warehouse  --> "1*" Length
+Warehouse  --> "1*" Width
+Warehouse  --> "1*" SmallestSquare
+Warehouse  --> "1*" Unit
+
+@enduml

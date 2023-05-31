@@ -1,0 +1,52 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+package "agv"{
+class AGV{
+}
+
+class AGVDocks{
+-id
+-beginl
+-beginw
+-endl
+-endw
+-depthl
+-depthw
+-accessibility
+}
+
+Warehouse <<entity>>
+AGV <<entity>>
+Order <<entity>>
+AGVDocks <<entity>>
+State <<value object>>
+ShortDescription <<value object>>
+Model <<value object>>
+MaximumWeight <<value object>>
+MaximumVolume <<value object>>
+BaseLocation <<value object>>
+Autonomy <<value object>>
+Id <<value object>>
+CurrentTask <<value object>>
+}
+
+Warehouse "1" -- "*" AGVDocks : contains >
+Order "1" -- "*" AGV : assigned to >
+AGVDocks "1" -- "1" AGV : parks in <
+Order  --> "1" State
+AGV  --> "1" ShortDescription
+AGV  --> "1" Model
+AGV  --> "1" Id
+AGV  --> "1" MaximumWeight
+AGV  --> "1" MaximumVolume
+AGV  --> "1" BaseLocation
+AGV  --> "1" Autonomy
+AGV  --> "1" CurrentTask
+
+
+
+
+@enduml

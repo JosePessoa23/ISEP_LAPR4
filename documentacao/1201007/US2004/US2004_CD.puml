@@ -1,0 +1,49 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class DispatchOrderUI
+}
+
+package "Application"{
+class DispatchOrderController{
++getOrdersToBeReadyForPackaging()
++changeStatus(orderdto)
+}
+}
+
+package "Domain"{
+class Product_Order{
++toOrderDTO(order)
+}
+}
+
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
+}
+}
+
+package "Repository"{
+class OrderRepository{
++findAllOrderReadyForPackaging()
++findOrderWithid(id)
++save(order)
+}
+
+}
+DispatchOrderUI .-> DispatchOrderController
+DispatchOrderController .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> OrderRepository
+OrderRepository .--> Product_Order
+DispatchOrderController .--> Product_Order
+
+
+@enduml

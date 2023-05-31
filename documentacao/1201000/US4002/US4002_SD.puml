@@ -1,0 +1,77 @@
+@startuml
+autonumber
+'hide footbox
+actor "Warehouse Employee" as WE
+
+participant ":AutoAssignOrderUI" as UI
+participant ":AutoAssignOrderController" as CTRL
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":AGVRepository" as AR
+participant "agv:AGV" as A
+participant ":OrderRepository" as OR
+participant ":WarehouseRepository" as WR
+participant "warehouse:Warehouse" as W
+participant "order:Product_Order" as O
+participant ":AGVDocks" as AD
+
+
+activate WE
+WE -> UI: I want to automatically assign tasks to AGVs
+activate UI
+UI -> CTRL : autoAssignOrder()
+activate CTRL
+CTRL -> PC : repositories()
+
+activate PC
+ref over PC
+OrderRepository_SD
+AGVRepository_SD
+WarehouseRepository_SD
+end ref
+PC --> CTRL
+deactivate PC
+
+CTRL -> WR : findAllWarehouses()
+activate WR
+WR --> CTRL : warehouse
+deactivate WR
+
+CTRL -> W : order = getNextOrder()
+activate W
+deactivate W
+
+CTRL -> AR: agv = findAbleAGVs(orderWeight, orderVolume)
+activate AR
+|||
+deactivate AR
+
+CTRL -> A: occupyAGV()
+activate A
+|||
+deactivate A
+
+CTRL -> O: beingPrepared()
+activate O
+|||
+deactivate O
+
+CTRL -> O: readyForPacking()
+activate O
+|||
+deactivate O
+
+CTRL -> A: freeAGV()
+activate A
+|||
+deactivate A
+
+CTRL -> UI: orderDTO
+deactivate CTRL
+
+UI -> WE: shows the order that was prepared
+
+
+
+
+@enduml

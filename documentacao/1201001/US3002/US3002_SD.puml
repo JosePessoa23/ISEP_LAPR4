@@ -1,0 +1,86 @@
+@startuml
+autonumber
+'hide footbox
+actor "Sales Manager" as SM
+
+participant ":ShowReportUI" as UI
+participant ":ShowReportController" as CTRL
+participant ":PersistenceContext" as PC
+participant ":SurveyRepository" as SR
+participant ":SurveyAnswerRepository" as SAR
+participant ":CustomerRepository" as CR
+
+
+
+autonumber
+activate SM
+
+SM -> UI: I want to see a statistical report about the questionaires
+activate UI
+UI -> CTRL : getSurveyList()
+activate CTRL
+CTRL -> PC : repositories()
+
+activate PC
+ref over PC
+CustomerRepository_SD
+SurveyRepository_SD
+SurveyAnswerRepository_SD
+end ref
+PC --> CTRL
+deactivate PC
+
+CTRL -> SR : findAll()
+activate SR
+SR --> CTRL : surveyList
+deactivate SR
+
+CTRL -> CTRL: toDto(surveyList)
+activate CTRL
+deactivate CTRL
+
+CTRL --> UI : surveyListDto
+
+deactivate CTRL
+UI --> SM: asks to select the needed data (the intended survey)
+deactivate UI
+
+SM -> UI: select requested data
+activate UI
+
+UI -> CTRL : getCommonInformation(long survey_id)
+activate CTRL
+CTRL -> SR : survey = findSurveyByID(survey_id)
+activate SR
+deactivate SR
+CTRL -> SAR : list = findSurveyAnswerBySurvey(survey_id)
+activate SAR
+deactivate SAR
+CTRL --> UI : commonInformation
+deactivate CTRL
+
+UI --> SM: shows common information
+UI -> CTRL : getQuestionInfo()
+activate CTRL
+CTRL --> UI :questionInformation
+deactivate CTRL
+
+UI --> SM: shows questionInformation
+deactivate UI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+deactivate SM
+@enduml

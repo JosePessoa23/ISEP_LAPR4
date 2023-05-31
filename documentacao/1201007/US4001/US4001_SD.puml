@@ -1,0 +1,26 @@
+@startuml US5001_SD.svg
+
+participant AGVDigitalTwin <<client>>
+
+AssignOrderProtocolServer -> AGVManagerServer : new
+loop true
+AssignOrderProtocolServer -> AGVManagerServer: start
+Activate AGVManagerServer
+AGVManagerServer -> AGVManagerServer: accept
+
+AGVDigitalTwin --> AGVManagerServer
+
+participant HandleClient <<thread>>
+activate HandleClient
+AGVManagerServer -\ HandleClient: start
+deactivate AGVManagerServer
+end
+
+HandleClient -> AssignOrderProtocolMessageParser:parse
+HandleClient -> HandleClient: execute
+HandleClient -> MessageBuilder:build
+
+HandleClient --> AGVDigitalTwin
+deactivate HandleClient
+
+@enduml

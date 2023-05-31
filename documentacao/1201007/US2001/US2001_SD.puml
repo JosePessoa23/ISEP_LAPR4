@@ -1,0 +1,68 @@
+@startuml
+autonumber
+'hide footbox
+actor "Warehouse Employee" as WE
+
+participant ":AddJsonFileUI" as UI
+participant ":AddJsonFileController" as CTRL
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":WarehouseRepository" as WR
+participant "row:Roww" as R
+participant "aisle:Aisle" as A
+participant "agvDock:AGVDocks" as AD
+participant "warehouse:Warehouse" as W
+participant "rows:Set<Roww>" as SR
+participant "aisles:Set<Aisle>" as SA
+participant "agvDocks:List<AGVDocks>" as SAD
+
+
+
+
+
+activate WE
+WE -> UI :ask to set up the warehouse plant by uploading a JSON file
+activate UI
+UI --> WE : request data(fileName)
+deactivate UI
+
+WE -> UI : types requested data
+activate UI
+
+UI -> CTRL : addJsonFile(file)
+activate CTRL
+
+CTRL -> CTRL : WarehousefromJsonFile()
+activate CTRL
+loop
+loop
+CTRL -> R** : row = create(rowid,warehouseid,aisleid,beginl,beginw,endl,endw,shelves)
+end
+CTRL -> A** : aisle = create(warehouseid,aisleid,beginl,beginw,endl,endw,depthl,depthw,accessibility,rows)
+end
+loop
+CTRL -> AD** : agvDocks = create(id,beginl,beginw,endl,endw,depthl,depthw,accessibility)
+end
+CTRL -> W** : warehouse = create(warehouse,length,width,square,unit,aisles,agvDocks)
+deactivate CTRL
+CTRL -> PC : repositories()
+activate PC
+PC -> RF : create()
+activate RF
+RF -> WR : create()
+activate WR
+deactivate WR
+deactivate RF
+|||
+deactivate PC
+
+CTRL -> WR : save(warehouse)
+activate WR
+deactivate WR
+deactivate CTRL
+UI --> WE : informs operations success
+deactivate UI
+
+
+deactivate WE
+@enduml

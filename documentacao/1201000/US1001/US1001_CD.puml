@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Presentation"{
+class ProductUI
+}
+
+package "Application"{
+class CreateProductController{
++getCategories()
+}
+}
+
+package "Domain"{
+class Product
+}
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "Repository"{
+class ProductRepository{
++create()
++save(product)
+}
+class ProductCategoryRepository{
++findAllProductCategories()
+}
+class WarehouseRepository{
++findAvailableRowPK()
++getRowByID()
+}
+}
+ProductUI .-> CreateProductController
+CreateProductController .--> Product
+CreateProductController .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> ProductRepository
+RepositoryFactory .--> WarehouseRepository
+RepositoryFactory .--> ProductCategoryRepository
+ProductRepository .--> Product
+
+
+@enduml

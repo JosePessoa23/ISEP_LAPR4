@@ -1,0 +1,93 @@
+@startuml
+autonumber
+'hide footbox
+
+participant AGVManagerThread as TH <<thread>>
+participant ":GetProductLocationController" as CTRLG
+participant ":Sensor" as S
+participant ":BuildWarehouseController" as CTRLB
+participant ":PersistenceContext" as PC
+participant ":RepositoryFactory" as RF
+participant ":WarehouseRepository" as OR
+participant "warehouse:Warehouse" as W
+participant "order:Product_Order" as O
+participant "product:Product" as P
+
+activate TH
+TH -> CTRLG: getProductLocation()
+activate CTRLG
+CTRLG -> PC : repositories()
+activate PC
+ref over PC
+Warehouse_SD
+end ref
+PC --> CTRLG
+deactivate PC
+
+CTRLG -> OR : findWarehouse()
+activate OR
+OR --> CTRLG : warehouse
+deactivate OR
+CTRLG -> O: getNextOrder()
+activate O
+O -> CTRLG: order
+deactivate O
+CTRLG -> P: productList()
+activate P
+P -> CTRLG: productList
+deactivate P
+deactivate CTRLG
+
+
+
+
+
+TH -> S** : new
+
+S -> CTRLB: getWarehouseMatrix()
+activate CTRLB
+CTRLB -> PC : repositories()
+
+activate PC
+ref over PC
+Warehouse_SD
+end ref
+PC --> CTRLB
+deactivate PC
+
+CTRLB -> OR : findWarehouse()
+activate OR
+OR --> CTRLB : warehouse
+deactivate OR
+CTRLB -> CTRLB : setAisleInWarehouse(matrix,warehouse)
+CTRLB -> CTRLB : setAgvDocksInWarehouse(matrix,warehouse)
+
+TH -> TH : moveAroundWarehouse(xActual,yActual,xProduct,yProduct,time)
+deactivate CTRLB
+
+activate TH
+loop
+alt yActual < yProduct
+TH -> S :  moveDown(xActual,yActual,notify, time)
+activate S
+deactivate S
+else yActual > yProduct
+TH -> S :  moveUp(xActual,yActual,notify, time)
+activate S
+deactivate S
+else xActual > xProduct
+TH -> S :  moveLeft(xActual,yActual,notify, time)
+activate S
+deactivate S
+else xActual < xProduct
+TH -> S :  moveRight(xActual,yActual,notify, time)
+activate S
+deactivate S
+end
+end
+
+deactivate TH
+
+
+
+@enduml

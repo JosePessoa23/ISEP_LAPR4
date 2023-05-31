@@ -1,0 +1,43 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+package "agvdigitaltwin"{
+class AGVDigitalTwinApp{
+}
+}
+
+package "agvmanager"{
+class AGVManagerServer{
+}
+class AgvManagerThread{
++AgvManagerThread()
++run()
+-moveAroundWarehouse( xActual, yActual, xProduct, yProduct, time)
+-moveRight( xActual, yActual, notify, time)
+-moveLeft( xActual, yActual, notify, time)
+-moveUp( xActual, yActual, notify, time)
+-moveDown( xActual, yActual, notify, time)
+}
+}
+
+package "Application"{
+class GetProductLocationController{
++getProductLocation()
++getAgvLocation(id)
++getAccessibility(row)
++setOrderReady(order)
++freeAGV(id)
+-occupyAGV(agv)
+}
+}
+
+
+
+AGVManagerServer .-> AgvManagerThread
+AGVDigitalTwinApp .-> AGVManagerServer
+AgvManagerThread .-> GetProductLocationController
+
+
+
+@enduml

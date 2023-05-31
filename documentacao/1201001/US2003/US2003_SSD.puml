@@ -1,0 +1,21 @@
+@startuml
+actor "Warehouse Employee" as WE
+participant ":System" as System
+
+autonumber
+activate WE
+WE -> System: I want to see the list of orders that need to be prepared by an AGV and ask/force any of those orders to be immediately prepared by an AGV available.
+activate System
+System --> WE: asks to select the needed data (The order)
+deactivate System
+WE -> System: select requested data
+activate System
+System --> WE: asks to select the needed data (AGV)
+deactivate System
+WE -> System: select requested data
+activate System
+System --> WE: informs operation success
+deactivate WE
+
+
+@enduml

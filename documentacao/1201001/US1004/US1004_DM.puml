@@ -1,0 +1,63 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+package "order"{
+class Order{
+- id
+- registration_time
+- state
+}
+
+
+
+class Shipment_method_cost{
+-shipment_method
+-weight
+-volume
+}
+
+class SalesClerk{
+}
+
+enum State{
+}
+
+class Total_amount{
+-Total_amount_with_taxes
+-Total_amount_without_taxes
+}
+
+
+Order <<entity>>
+SalesClerk <<entity>>
+Product <<entity>>
+Customer <<entity>>
+Shipment_method_cost <<value object>>
+Total_amount <<value object>>
+Payment_confirmation <<value object>>
+Payment_method <<value object>>
+Address <<value object>>
+State <<value object>>
+}
+
+
+SalesClerk "1" -- "*" Order : register >
+Order "1" -- "*" Product : contains >
+Order "1" -- "1" Shipment_method_cost : has >
+Product  --> "1" PriceWithTaxes
+Product  --> "1" PriceWithoutTaxes
+Product  --> "1" Weight
+Product  --> "1" Volume
+Order  --> "1" Address
+Address <|-- Delivering
+Address <|-- Billing
+Order  --> "1" Customer
+Order  --> "1" Total_amount
+Order  --> "1" Payment_method
+Order  --> "1" Payment_confirmation
+Order  --> "1" State
+
+
+@enduml

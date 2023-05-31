@@ -1,0 +1,30 @@
+QUEST2
+Cidades pelo mundo.
+bem vindo ao questionario. tem 3 perguntas para responder.
+1. europa.
+saber o nome de cidades europeias.
+optional
+1. qual a capital de Portugal?
+single-choice
+a) Lisboa;
+b) Porto;
+c) Madeira.
+mandatory
+2. quais nao sao a capital de Espanha?
+multiple-choice
+a) Barcelona;
+b) Madrid;
+c) Sevilha.
+optional
+
+2. asia.
+saber o nome de cidades asiaticas.
+mandatory
+1. qual destas cidades se encontra na asia?
+single-choice
+a) Texas;
+b) Algarve;
+c) Toquio.
+mandatory
+
+obrigada pelas respostas.

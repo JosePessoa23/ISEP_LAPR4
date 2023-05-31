@@ -1,0 +1,92 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+package "product"{
+class Product{
+-availability
+}
+
+class Category{
+-description
+-code
+}
+
+
+Product <<entity>>
+Category <<entity>>
+Catalog <<value object>>
+InternalCode <<value object>>
+Brand <<value object>>
+PriceWithoutTaxes <<value object>>
+PriceWithTaxes <<value object>>
+Barcode <<value object>>
+ProductionCode <<value object>>
+Reference <<value object>>
+TechnicalDescription <<value object>>
+ExtendedDescription <<value object>>
+ShortDescription <<value object>>
+Photo <<value object>>
+Location <<value object>>
+}
+
+package "warehouse"{
+    class Warehouse{
+    }
+
+    class Aisle{
+    -id
+    -beginLengthSquare
+    -beginWidthSquare
+    -endLengthSquare
+    -endWidthSquare
+    -depthLengthSquare
+    -depthWidthSquare
+    -accessibilityDirection
+    }
+
+    class Row{
+    -id
+    -beginLengthSquare
+    -beginWidthSquare
+    -endLengthSquare
+    -endWidthSquare
+    }
+
+    class Shelf{
+    -id
+    -binSize
+    -numberOfBins
+    -maxBins
+    }
+
+    Warehouse <<entity>>
+    Shelf <<value object>>
+    Row <<value object>>
+    Aisle <<value object>>
+
+}
+
+Catalog "1" -- "*" Product : contains >
+Product "*" -- "1" Category : organized by >
+Product  --> "1" InternalCode
+Product  --> "1" Photo
+Product  --> "1" ShortDescription
+Product  --> "1" ExtendedDescription
+Product  --> "0..1" TechnicalDescription
+Product  --> "1" Brand
+Product  --> "1" Reference
+Product  --> "1" Barcode
+Product  --> "1" PriceWithTaxes
+Product  --> "1" PriceWithoutTaxes
+Product  --> "1" ProductionCode
+Product  --> "1" Location
+Location --> "1" Warehouse
+
+Warehouse  --> "1..*" Shelf
+Warehouse  --> "1..*" Row
+Warehouse  --> "1..*" Aisle
+
+
+@enduml

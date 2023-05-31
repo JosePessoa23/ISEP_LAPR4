@@ -1,0 +1,29 @@
+@startuml
+actor "Sales Clerk" as SC
+participant ":System" as System
+
+autonumber
+activate SC
+SC -> System: Register a new Order in behalf of a customer
+activate System
+System --> SC: asks to select the needed data (The wanted produts and it's quantity)
+deactivate System
+SC -> System: select requested data
+activate System
+System --> SC: asks to type the customerID
+deactivate System
+SC -> System: type requested data
+activate System
+System --> SC: asks to select the billing, the delivering address , the shipment method and a method of payment
+deactivate System
+SC -> System: select requested data
+activate System
+System --> SC: asks to type the source of the order information
+deactivate System
+SC -> System: type requested data
+activate System
+System --> SC: informs operation success
+
+
+deactivate SC
+@enduml

@@ -1,0 +1,46 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+package "AGVManager"{
+package "console"{
+class HTTP{
++main()
+}
+}
+}
+
+
+package "Domain"{
+class AGV{
+}
+}
+
+
+package "Persistence"{
+class PersistenceContext{
++repositories()
+}
+}
+
+package "Factory"{
+class RepositoryFactory{
++create()
+}
+}
+
+package "Repository"{
+class AGVRepository{
++create()
++findAllAGV()
+}
+}
+
+HTTP .--> PersistenceContext
+PersistenceContext .--> RepositoryFactory
+RepositoryFactory .--> AGVRepository
+HTTP .--> AGV
+AGVRepository .--> AGV
+
+
+@enduml

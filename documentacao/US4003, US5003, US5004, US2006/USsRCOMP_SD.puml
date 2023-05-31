@@ -1,0 +1,18 @@
+@startuml
+
+participant AGVDigitalTwin <<client>>
+participant AGVManagerServer
+participant AGVManagerThread as TH <<thread>>
+
+
+activate AGVDigitalTwin
+AGVDigitalTwin -> AGVManagerServer : connect()
+activate AGVManagerServer
+AGVManagerServer -> TH** : new
+AGVManagerServer -> TH : start()
+activate TH
+deactivate TH
+deactivate AGVManagerServer
+deactivate AGVDigitalTwin
+
+@enduml
